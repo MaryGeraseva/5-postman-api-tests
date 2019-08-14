@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "25d893fd-e63b-43c5-a686-81505bb95bc9",
-		"name": "Nonexistent endpoint",
+		"name": "Nonexistent_endpoint",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -56,6 +56,28 @@
 				"description": "POST request to nonexistent endpoint test with required headers.\nTest data were generated automatically. \nExpected status code 4XX"
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "74a1754e-b2fa-4228-9aa4-578add5e488b",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "1d8ba39f-b208-421c-9a48-bf43b5abc3bf",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }

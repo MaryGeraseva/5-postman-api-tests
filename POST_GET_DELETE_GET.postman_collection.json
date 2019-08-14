@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "88839a18-411f-4218-869d-b45facf70788",
-		"name": "POST-GET-DELETE-GET",
+		"name": "POST_GET_DELETE_GET",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -288,6 +288,28 @@
 				"description": "GET request test with nonexistent id and required headers.\nTest checks DELETE request.\nOrder id have got from the previous test step.\nExpected status 404 \"Not Found\", message \"Order not found\""
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "568020e6-7cf2-4c9c-bbdc-fca5826d483c",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "98314ebc-4f5c-4616-9fa2-0773ec3f7229",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }

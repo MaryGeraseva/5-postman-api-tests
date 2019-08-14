@@ -1,7 +1,7 @@
 {
 	"info": {
 		"_postman_id": "b715bd00-9fd9-48b1-bcde-c2671149ec17",
-		"name": "GET_All",
+		"name": "GET_all",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
@@ -106,6 +106,28 @@
 				"description": "GET request test with required headers.\nExpected status code 200, message \"OK\" and response body \nAssertion with json schema validator"
 			},
 			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "a656130e-13bc-460e-b67c-030d98cb65a8",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "e05ae0e9-49cc-4c52-a9dc-28343c42e334",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
 		}
 	]
 }
