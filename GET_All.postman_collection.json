@@ -61,7 +61,7 @@
 							"pm.response.to.have.jsonSchema(schema);",
 							"",
 							"//5.Checking json properties quantity",
-							"pm.test(\"Your test name\", function () {",
+							"pm.test(\"Checking json properties quantity\", function () {",
 							"    var jsonData = pm.response.json();",
 							"    pm.expect(Object.keys(jsonData).length).to.eql(3);",
 							"});",

@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "7b5f458d-5132-4f20-9144-95ce9700b4a2",
+		"name": "POST_400_with_post400data",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Store endpoint POST with invalid data 400 tests",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ee014eaa-6adb-4b45-b8c6-8a2291eee2d6",
+						"exec": [
+							"//Create current date \r",
+							"var moment = require('moment')\r",
+							"pm.environment.set(\"currentDate\", moment().format(\"YYYY-MM-DD\"));"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "1b79c778-c73f-41ce-89ae-5ca99b943987",
+						"exec": [
+							"//1.Checking response status",
+							"pm.test(\"Status code is 400\", function () {",
+							"    pm.response.to.have.status(400);",
+							"});",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"Bad Request\");",
+							"});",
+							"",
+							"//2.Checking response body",
+							"pm.test(\"Body matches response message\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Invalid Order\");",
+							"});",
+							"pm.test(\"Body matches status code\", function () {",
+							"    pm.expect(pm.response.text()).to.include(400);",
+							"});",
+							"pm.test(\"Body matches status type\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"error\");",
+							"});",
+							"",
+							"console.log(pm.response.json());"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_key",
+						"type": "text",
+						"value": "maryTest062019"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": \"{{id}}\",\r\n  \"petId\": {{petId}},\r\n  \"quantity\": {{quantity}},\r\n  \"shipDate\": \"{{currentDate}}\",\r\n  \"status\": \"{{status}}\",\r\n  \"complete\": {{complete}}\r\n}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/order?",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"order"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				},
+				"description": "POST request tests with invalid data and required headers.\nTest data were read from csv file.\nExpected status 400 \"Bad Request\", message \"Invalid Order\""
+			},
+			"response": []
+		}
+	]
+}

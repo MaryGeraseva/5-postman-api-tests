@@ -106,6 +106,97 @@
 			"response": []
 		},
 		{
+			"name": "Store endpoint DELETE nonexisten order 404 test",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8b12f820-2174-444b-99a1-d550de41a78c",
+						"exec": [
+							"//1.Generate orderId and url",
+							"pm.environment.set(\"orderId\", Math.floor(Math.random() * 10000) + 1);",
+							"pm.environment.set(\"url\", \"https://petstore.swagger.io/v2/store/order/\" + pm.environment.get(\"orderId\"));",
+							"",
+							"//1.Create Delete request",
+							"const options = { method: 'DELETE',",
+							"  url: pm.environment.get(\"url\"),",
+							"  header: { ",
+							"     'Content-Type': 'application/json',",
+							"     'api_key': 'maryTest062019' }",
+							"};",
+							"",
+							"//3.Send POST request and set id variable",
+							"pm.sendRequest(options, function (error, response) {",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "dbb33b1e-afd2-42b0-a993-536f3e21740b",
+						"exec": [
+							"//1.Checking response status",
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"pm.test(\"Status code is Not Found\", function () {",
+							"    pm.response.to.be.notFound;",
+							"});",
+							"",
+							"//2.Checking response body",
+							"pm.test(\"Body matches response message\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Order not found\");",
+							"});",
+							"pm.test(\"Body matches status code\", function () {",
+							"    pm.expect(pm.response.text()).to.include(404);",
+							"});",
+							"pm.test(\"Body matches status type\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"error\");",
+							"});",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "api_key",
+						"type": "text",
+						"value": "maryTest062019"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/order/{{orderId}}",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"order",
+						"{{orderId}}"
+					]
+				},
+				"description": "DELETE request tests with nonexistent id and required headers.\r\nPre-request script makes DELETE request to clean database.\r\nExpected status 404 \"Not Found\", message \"Order not found\""
+			},
+			"response": []
+		},
+		{
 			"name": "Store endpoint DELETE invalid id 400 tests",
 			"event": [
 				{
@@ -197,97 +288,6 @@
 					]
 				},
 				"description": "DELETE request tests with invalid id and required headers.\r\nTest data were read from pre-request script.\r\nExpected status 400 \"Bad Request\", message \"Invalid ID supplied\""
-			},
-			"response": []
-		},
-		{
-			"name": "Store endpoint DELETE nonexisten order 404 test",
-			"event": [
-				{
-					"listen": "prerequest",
-					"script": {
-						"id": "8b12f820-2174-444b-99a1-d550de41a78c",
-						"exec": [
-							"//1.Generate orderId and url",
-							"pm.environment.set(\"orderId\", Math.floor(Math.random() * 10000) + 1);",
-							"pm.environment.set(\"url\", \"https://petstore.swagger.io/v2/store/order/\" + pm.environment.get(\"orderId\"));",
-							"",
-							"//1.Create Delete request",
-							"const options = { method: 'DELETE',",
-							"  url: pm.environment.get(\"url\"),",
-							"  header: { ",
-							"     'Content-Type': 'application/json',",
-							"     'api_key': 'maryTest062019' }",
-							"};",
-							"",
-							"//3.Send POST request and set id variable",
-							"pm.sendRequest(options, function (error, response) {",
-							"});",
-							""
-						],
-						"type": "text/javascript"
-					}
-				},
-				{
-					"listen": "test",
-					"script": {
-						"id": "dbb33b1e-afd2-42b0-a993-536f3e21740b",
-						"exec": [
-							"//1.Checking response status",
-							"pm.test(\"Status code is 404\", function () {",
-							"    pm.response.to.have.status(404);",
-							"});",
-							"pm.test(\"Status code is Not Found\", function () {",
-							"    pm.response.to.be.notFound;",
-							"});",
-							"",
-							"//2.Checking response body",
-							"pm.test(\"Body matches response message\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"Order not found\");",
-							"});",
-							"pm.test(\"Body matches status code\", function () {",
-							"    pm.expect(pm.response.text()).to.include(404);",
-							"});",
-							"pm.test(\"Body matches status type\", function () {",
-							"    pm.expect(pm.response.text()).to.include(\"error\");",
-							"});",
-							"",
-							""
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "api_key",
-						"type": "text",
-						"value": "maryTest062019"
-					},
-					{
-						"key": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"url": {
-					"raw": "https://petstore.swagger.io/v2/store/order/{{orderId}}",
-					"protocol": "https",
-					"host": [
-						"petstore",
-						"swagger",
-						"io"
-					],
-					"path": [
-						"v2",
-						"store",
-						"order",
-						"{{orderId}}"
-					]
-				},
-				"description": "DELETE request tests with nonexistent id and required headers.\r\nPre-request script makes DELETE request to clean database.\r\nExpected status 404 \"Not Found\", message \"Order not found\""
 			},
 			"response": []
 		}
