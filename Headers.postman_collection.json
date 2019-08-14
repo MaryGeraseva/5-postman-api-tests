@@ -1,0 +1,205 @@
+{
+	"info": {
+		"_postman_id": "1f6b41ba-c530-4dd4-b3c0-e40ebcf32860",
+		"name": "Headers",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Store endpoint without content-type header POST",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "af9b011f-de6a-4918-bc00-539e79a8817b",
+						"exec": [
+							"//1.Create current date ",
+							"var moment = require('moment');",
+							"pm.environment.set(\"currentDate\", moment().format(\"YYYY-MM-DD\"));",
+							"",
+							"//3.Set request header",
+							"pm.request.headers.add({key: 'api_key', value: 'maryTest062019' });",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "abbba98b-dbff-4a4d-b35e-3fd5dac8cf0f",
+						"exec": [
+							"//1.Checking status code",
+							"pm.test(\"Status code is 4XX\", function () {",
+							"   pm.response.to.be.clientError;",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{orderId}},\r\n  \"petId\": {{$randomInt}},\r\n  \"quantity\": {{$randomInt}},\r\n  \"shipDate\": \"{{currentDate}}\",\r\n  \"status\": \"plased\",\r\n  \"complete\": {{$randomBoolean}}\r\n}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/order",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"order"
+					]
+				},
+				"description": "POST request test without content-type header. \nTest data were generated automatically.\nExpected status code 4XX"
+			},
+			"response": []
+		},
+		{
+			"name": "Store endpoint with nonexistent header POST",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "af9b011f-de6a-4918-bc00-539e79a8817b",
+						"exec": [
+							"//1.Create current date ",
+							"var moment = require('moment');",
+							"pm.environment.set(\"currentDate\", moment().format(\"YYYY-MM-DD\"));",
+							"",
+							"//3.Set request header",
+							"pm.request.headers.add({key: 'X-Pingback', value: 'test' });",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "abbba98b-dbff-4a4d-b35e-3fd5dac8cf0f",
+						"exec": [
+							"//1.Checking status code",
+							"pm.test(\"Status code is 4XX\", function () {",
+							"   pm.response.to.be.clientError;",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{orderId}},\r\n  \"petId\": {{$randomInt}},\r\n  \"quantity\": {{$randomInt}},\r\n  \"shipDate\": \"{{currentDate}}\",\r\n  \"status\": \"plased\",\r\n  \"complete\": {{$randomBoolean}}\r\n}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/order",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"order"
+					]
+				},
+				"description": "POST request test with nonexistent header. \nTest data were generated automatically. \nExpected status code 4XX"
+			},
+			"response": []
+		},
+		{
+			"name": "Store endpoint api_key header negative test POST",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "af9b011f-de6a-4918-bc00-539e79a8817b",
+						"exec": [
+							"//1.Create current date ",
+							"var moment = require('moment');",
+							"pm.environment.set(\"currentDate\", moment().format(\"YYYY-MM-DD\"));",
+							"",
+							"//2.Create headers scope",
+							"var headers = pm.environment.get(\"headers\");",
+							"if (!headers) {",
+							"    headers = [\"testKey\", null, \"0\"];",
+							"} ",
+							"var currentHeader = headers.shift();",
+							"pm.environment.set(\"headers\", headers);",
+							"",
+							"//3.Set required request headers",
+							"pm.request.headers.add({key: 'api_key', value: currentHeader });",
+							"pm.request.headers.add({key: 'Content-Type', value: 'application/json' });",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "abbba98b-dbff-4a4d-b35e-3fd5dac8cf0f",
+						"exec": [
+							"//1.Making request while array has data",
+							"var headers = pm.environment.get(\"headers\");",
+							"if (headers && headers.length > 0) {",
+							"    postman.setNextRequest('Store endpoint api_key header negative test POST');",
+							"} else {",
+							"     postman.setNextRequest(null);",
+							"}",
+							"",
+							"//2.Checking status code",
+							"pm.test(\"Status code is 4XX\", function () {",
+							"   pm.response.to.be.clientError;",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{$randomInt}},\r\n  \"petId\": {{$randomInt}},\r\n  \"quantity\": {{$randomInt}},\r\n  \"shipDate\": \"{{currentDate}}\",\r\n  \"status\": \"plased\",\r\n  \"complete\": {{$randomBoolean}}\r\n}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/order",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"order"
+					]
+				},
+				"description": "POST request tests with invalid api_key header.\nTest data were generated automatically. \nHeader value was read from pre-request script.\nExpected status code 4XX"
+			},
+			"response": []
+		}
+	]
+}

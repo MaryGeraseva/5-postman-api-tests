@@ -1,0 +1,61 @@
+{
+	"info": {
+		"_postman_id": "25d893fd-e63b-43c5-a686-81505bb95bc9",
+		"name": "Nonexistent endpoint",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Petstore POST request with api_key to nonexistent endpoint",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "023a4ca4-e7bf-423e-ab33-eef72f16fe72",
+						"exec": [
+							"//1.Checking response status",
+							"pm.test(\"Status code is 4XX\", function () {",
+							"   pm.response.to.be.clientError;l",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_key",
+						"type": "text",
+						"value": "maryTest062019"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{$randomInt}},\r\n  \"name\": {{$randomInt}}\r\n}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/customer",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"customer"
+					]
+				},
+				"description": "POST request to nonexistent endpoint test with required headers.\nTest data were generated automatically. \nExpected status code 4XX"
+			},
+			"response": []
+		}
+	]
+}

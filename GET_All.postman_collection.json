@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "b715bd00-9fd9-48b1-bcde-c2671149ec17",
+		"name": "GET_All",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Store endpoint GET all inventory list 200 test",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8a2f3099-6448-4198-bf28-9379285437d5",
+						"exec": [
+							"",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "dff94291-4c3b-4eca-b656-1d74a2e5e59b",
+						"exec": [
+							"//1.Checking status code",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//2.Checking response message",
+							"pm.test(\"Response message is OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"//3.Checking response body fields",
+							"pm.test(\"Checking inventory with available status\", function () {",
+							"    pm.response.to.have.jsonBody(\"available\");",
+							"});",
+							"pm.test(\"Checking inventory with pending status\", function () {",
+							"    pm.response.to.have.jsonBody(\"pending\");",
+							"});",
+							"pm.test(\"Checking inventory with sold status\", function () {",
+							"    pm.response.to.have.jsonBody(\"sold\");",
+							"});",
+							"",
+							"//4.Json shema validation",
+							"const schema = {",
+							"  \"type\": \"object\",",
+							"  \"properties\": {",
+							"      \"available\": {\"type\": \"integer\"},",
+							"      \"pending\": {\"type\": \"integer\"},",
+							"      \"sold\": {\"type\": \"integer\"}",
+							"  },",
+							"  \"required\": [\"available\",\"pending\",\"sold\"]",
+							"};",
+							"",
+							"pm.response.to.have.jsonSchema(schema);",
+							"",
+							"//5.Checking json properties quantity",
+							"pm.test(\"Your test name\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(Object.keys(jsonData).length).to.eql(3);",
+							"});",
+							"",
+							"console.log(pm.response.json());",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api_key",
+						"type": "text",
+						"value": "maryTest062019"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/inventory",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"inventory"
+					]
+				},
+				"description": "GET request test with required headers.\nExpected status code 200, message \"OK\" and response body \nAssertion with json schema validator"
+			},
+			"response": []
+		}
+	]
+}

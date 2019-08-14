@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "5b211800-3c4d-43e3-849b-2c44ee3b68ec",
+		"name": "Not_allowed_method",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Store endpoint PUT",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "5389fd79-e65e-4f8d-b557-0db6c9d4bc1d",
+						"exec": [
+							"//1.Create future date ",
+							"var moment = require('moment');",
+							"pm.environment.set(\"date\", moment().format(\"YYYY-MM-DD\"));",
+							"",
+							"",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "ba359d46-3ad3-4aa8-b24f-b0ecc5d1a299",
+						"exec": [
+							"//1.Checking response status ",
+							"pm.test(\"Status code is 4XX\", function () {",
+							"   pm.response.to.be.clientError;",
+							"});",
+							"pm.test(\"Checking response message\", function () {",
+							"    pm.response.to.have.status(\"Method Not Allowed\");",
+							"});",
+							"//2.Checking response body",
+							"pm.test(\"Body matches response message\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Method Not Allowed\");",
+							"});",
+							"",
+							"console.log(pm.response);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "api_key",
+						"type": "text",
+						"value": "maryTest062019"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{$randomInt}},\r\n  \"petId\": {{$randomInt}},\r\n  \"quantity\": {{$randomInt}},\r\n  \"shipDate\": \"{{date}}\",\r\n  \"status\": \"plased\",\r\n  \"complete\": {{$randomBoolean}}\r\n}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/order",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"order"
+					]
+				},
+				"description": "Test send not allowed request method PUT to store endpoint with required headers.\nTest data were generated automatically. \nExpected status code 4XX, message \"Method Not Allowed\""
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "23032c5a-e36f-436f-83b2-a04d384f528d",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "5eafe540-bffe-4129-aea5-011e9ff9f5ae",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

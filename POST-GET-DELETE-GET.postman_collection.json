@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "88839a18-411f-4218-869d-b45facf70788",
+		"name": "POST-GET-DELETE-GET",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1.Send POST request to store endpoint",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "32174fec-f338-4ba9-8400-2169385870e1",
+						"exec": [
+							"//1.Create current date ",
+							"var moment = require('moment');",
+							"pm.environment.set(\"currentDate\", moment().format(\"YYYY-MM-DD\"));",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "77a505f3-fa38-492d-ac2b-8ca4f086125f",
+						"exec": [
+							"//1.Checking status code",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//2.Checking response message",
+							"pm.test(\"Response message is OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							"",
+							"//3.Set orderId for next requestes",
+							"const jsonData = pm.response.json();",
+							"pm.globals.set(\"orderId\", jsonData.id);",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "api_key",
+						"type": "text",
+						"value": "maryTest062019"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{$randomInt}},\r\n  \"petId\": {{$randomInt}},\r\n  \"quantity\": {{$randomInt}},\r\n  \"shipDate\": \"{{currentDate}}\",\r\n  \"status\": \"approved\",\r\n  \"complete\": {{$randomBoolean}}\r\n}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/order",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"order"
+					]
+				},
+				"description": "POST request test with valid data and required headers.\nTest data were generated automatically. \nExpected status code 200, message \"OK\" and response body"
+			},
+			"response": []
+		},
+		{
+			"name": "4.Send GET request to store endpoint",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8a2f3099-6448-4198-bf28-9379285437d5",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "dff94291-4c3b-4eca-b656-1d74a2e5e59b",
+						"exec": [
+							"//1.Checking status code",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//2.Checking response message",
+							"pm.test(\"Response message is OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api_key",
+						"type": "text",
+						"value": "maryTest062019"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/order/{{orderId}}",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"order",
+						"{{orderId}}"
+					]
+				},
+				"description": "GET request test with valid id and required headers.\nOrder id have got from the previous test step.\nExpected status code 200, message \"OK\" and response body"
+			},
+			"response": []
+		},
+		{
+			"name": "3.Send DELETE request to store endpoint",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "d0ef26d3-aa04-41bc-a08a-916bb5496004",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "88752fee-cf48-43c0-a518-427be9a34194",
+						"exec": [
+							"//1.Checking status code",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//2.Checking response message",
+							"pm.test(\"Response message is OK\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "api_key",
+						"type": "text",
+						"value": "maryTest062019"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/order/{{orderId}}",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"order",
+						"{{orderId}}"
+					]
+				},
+				"description": "DELETE request test with valid data and required headers. \nOrder id have got from the previous test step.\nExpected status code 200, message \"OK\""
+			},
+			"response": []
+		},
+		{
+			"name": "4.Send GET request to store endpoint to check DELETE request",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "8a2f3099-6448-4198-bf28-9379285437d5",
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "dff94291-4c3b-4eca-b656-1d74a2e5e59b",
+						"exec": [
+							"//1.Checking response status",
+							"pm.test(\"Status code is 404\", function () {",
+							"    pm.response.to.have.status(404);",
+							"});",
+							"pm.test(\"Status code name has string\", function () {",
+							"    pm.response.to.have.status(\"Not Found\");",
+							"});",
+							"",
+							"//2.Checking response body",
+							"pm.test(\"Body matches response message\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"Order not found\");",
+							"});",
+							"pm.test(\"Body matches status code\", function () {",
+							"    pm.expect(pm.response.text()).to.include(404);",
+							"});",
+							"pm.test(\"Body matches status type\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"error\");",
+							"});",
+							"",
+							"console.log(pm.response.json());",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "api_key",
+						"type": "text",
+						"value": "maryTest062019"
+					},
+					{
+						"key": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/order/{{orderId}}",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"order",
+						"{{orderId}}"
+					]
+				},
+				"description": "GET request test with nonexistent id and required headers.\nTest checks DELETE request.\nOrder id have got from the previous test step.\nExpected status 404 \"Not Found\", message \"Order not found\""
+			},
+			"response": []
+		}
+	]
+}
