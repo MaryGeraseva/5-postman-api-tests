@@ -2,18 +2,16 @@
   "name": "postmantestspetshop",
   "version": "1.0.0",
   "description": "storing postman tests",
-  "main": "index.js",
   "scripts": {
     "DELETE-tests": "newman run DELETE.postman_collection.json",
     "GET-tests": "newman run GET.postman_collection.json",
-    "GET_ALL-tests": "newman run GET_ALL.postman_collection.json"
+    "GET_All-tests": "newman run GET_All.postman_collection.json"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/MaryGeraseva/5-postmanApiTests.git"
   },
   "author": "MaryG",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/MaryGeraseva/5-postmanApiTests/issues"
   },
