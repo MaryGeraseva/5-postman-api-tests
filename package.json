@@ -5,7 +5,8 @@
   "scripts": {
     "DELETE-tests": "newman run DELETE.postman_collection.json",
     "GET-tests": "newman run GET.postman_collection.json",
-    "GET_All-tests": "newman run GET_All.postman_collection.json"
+    "GET_All-tests": "newman run GET_All.postman_collection.json",
+    "POST_GET_DELETE_GET-tests": "newman run POST_GET_DELETE_GET.postman_collection.json"
   },
   "repository": {
     "type": "git",
