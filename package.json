@@ -1,9 +1,11 @@
 {
-  "name": "delete.postman_collection",
+  "name": "postman_collections",
   "version": "1.0.0",
   "description": "project for storing postman tests",
   "scripts": {
-    "tests-production": "newman run DELETE.postman_collection.json"
+    "DELETE-tests-production": "newman run DELETE.postman_collection.json"
+    "GET_All-tests-production": "newman run GET_All.postman_collection.json"
+    "GET-tests-production": "newman run GET.postman_collection.json"
   },
   "author": "MaryG",
   "dependencies": {
