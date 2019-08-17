@@ -6,7 +6,7 @@
     "DELETE-tests": "newman run DELETE.postman_collection.json",
     "GET-tests": "newman run GET.postman_collection.json",
     "GET_All-tests": "newman run GET_All.postman_collection.json",
-    "POST_200_with_post200data-tests": "newman run POST_200_with_post200data.postman_collection.json -d post200data.csv  --reporters cli,junit,html --reporter-junit-export newman.xml --reporter-html-export newman.html"
+    "POST_200_with_post200data-tests": "newman run POST_200_with_post200data.postman_collection.json -d post200data.csv  --reporters cli,junit --reporter-junit-export newman.xml"
   },
   "repository": {
     "type": "git",
