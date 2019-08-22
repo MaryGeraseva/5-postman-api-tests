@@ -51,7 +51,6 @@
 							"    pm.expect(jsonData.complete).to.be.oneOf([true, false]);",
 							"});",
 							"",
-							"",
 							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
 							"console.log(\"response body is: \" + responseBody);",
 							""

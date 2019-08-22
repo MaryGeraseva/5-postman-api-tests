@@ -68,7 +68,7 @@
 							"    pm.response.to.have.status(\"OK\");",
 							"});",
 							"",
-							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
+							"",
 							"console.log(\"response body is: \" + responseBody);"
 						],
 						"type": "text/javascript"
@@ -160,7 +160,6 @@
 							"    pm.expect(pm.response.text()).to.include(\"error\");",
 							"});",
 							"",
-							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
 							"console.log(\"response body is: \" + responseBody);"
 						],
 						"type": "text/javascript"
@@ -256,7 +255,6 @@
 							"    pm.expect(pm.response.text()).to.include(\"error\");",
 							"});",
 							"",
-							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
 							"console.log(\"response body is: \" + responseBody);"
 						],
 						"type": "text/javascript"

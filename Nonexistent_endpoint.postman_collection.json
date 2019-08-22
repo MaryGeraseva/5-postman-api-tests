@@ -18,7 +18,6 @@
 							"   pm.response.to.be.clientError;l",
 							"});",
 							"",
-							"console.log(\"header api_key value is: \" + request.headers[\"api_key\"]);",
 							"console.log(\"response body is: \" + responseBody);"
 						],
 						"type": "text/javascript"
