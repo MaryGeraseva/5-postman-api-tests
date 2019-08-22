@@ -66,7 +66,9 @@
 							"    pm.expect(Object.keys(jsonData).length).to.eql(3);",
 							"});",
 							"",
-							"console.log(pm.response.json());",
+							"",
+							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
+							"console.log(\"response body is: \" + responseBody);",
 							"",
 							"",
 							""

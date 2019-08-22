@@ -92,7 +92,10 @@
 							"pm.test(\"Checking complete value\", function () {",
 							"    pm.expect(jsonData.complete).to.be.oneOf([true, false]);",
 							"});",
-							""
+							"",
+							"",
+							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
+							"console.log(\"response body is: \" + responseBody);"
 						],
 						"type": "text/javascript"
 					}
@@ -166,7 +169,10 @@
 							"pm.test(\"Json schema is valid\", function() {",
 							"    pm.expect(tv4.validate(responseData, schema)).to.be.true;",
 							"});",
-							""
+							"",
+							"",
+							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
+							"console.log(\"response body is: \" + responseBody);"
 						],
 						"type": "text/javascript"
 					}
@@ -305,7 +311,8 @@
 							"    pm.expect(pm.response.text()).to.include(\"error\");",
 							"});",
 							"",
-							"console.log(pm.response.json());"
+							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
+							"console.log(\"response body is: \" + responseBody);"
 						],
 						"type": "text/javascript"
 					}
@@ -402,7 +409,8 @@
 							"});",
 							"",
 							"",
-							"console.log(pm.response.json());",
+							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
+							"console.log(\"response body is: \" + responseBody);",
 							"",
 							""
 						],

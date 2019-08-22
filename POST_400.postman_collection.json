@@ -30,7 +30,10 @@
 							"});",
 							"pm.test(\"Body matches status type error\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"error\");",
-							"});"
+							"});",
+							"",
+							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
+							"console.log(\"response body is: \" + responseBody);"
 						],
 						"type": "text/javascript"
 					}
@@ -100,7 +103,8 @@
 							"});",
 							"",
 							"",
-							"console.log(pm.response.json());",
+							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
+							"console.log(\"response body is: \" + responseBody);",
 							""
 						],
 						"type": "text/javascript"
@@ -171,7 +175,8 @@
 							"});",
 							"",
 							"",
-							"console.log(pm.response.json());"
+							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
+							"console.log(\"response body is: \" + responseBody);"
 						],
 						"type": "text/javascript"
 					}
@@ -285,7 +290,9 @@
 							"    pm.expect(pm.response.text()).to.include(\"error\");",
 							"});",
 							"",
-							"console.log(pm.response.json());",
+							"",
+							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
+							"console.log(\"response body is: \" + responseBody);",
 							"",
 							""
 						],

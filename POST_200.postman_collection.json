@@ -42,7 +42,10 @@
 							"pm.test(\"ShipDate value is valid\", function () {",
 							"    const jsonData = pm.response.json();",
 							"    pm.expect(jsonData.shipDate).to.include(pm.environment.get(\"date\"));",
-							"});"
+							"});",
+							"",
+							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
+							"console.log(\"response body is: \" + responseBody);"
 						],
 						"type": "text/javascript"
 					}
@@ -144,7 +147,8 @@
 							"});",
 							"",
 							"",
-							""
+							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
+							"console.log(\"response body is: \" + responseBody);"
 						],
 						"type": "text/javascript"
 					}

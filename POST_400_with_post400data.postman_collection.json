@@ -44,7 +44,9 @@
 							"    pm.expect(pm.response.text()).to.include(\"error\");",
 							"});",
 							"",
-							"console.log(pm.response.json());"
+							"",
+							"console.log(\"request body is:\" + request.data.toString().replace(/\\r\\n/g, \"\"));",
+							"console.log(\"response body is: \" + responseBody);"
 						],
 						"type": "text/javascript"
 					}

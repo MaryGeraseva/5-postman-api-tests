@@ -34,6 +34,8 @@
 							"pm.test(\"Status code is 4XX\", function () {",
 							"   pm.response.to.be.clientError;",
 							"});",
+							"",
+							"console.log(\"response body is: \" + responseBody);",
 							""
 						],
 						"type": "text/javascript"
@@ -61,7 +63,7 @@
 						"order"
 					]
 				},
-				"description": "POST request test without content-type header. \nTest data were generated automatically.\nExpected status code 4XX"
+				"description": "POST request test without content-type header. \nTest data are generated automatically.\nExpected status code 4XX"
 			},
 			"response": []
 		},
@@ -94,6 +96,8 @@
 							"pm.test(\"Status code is 4XX\", function () {",
 							"   pm.response.to.be.clientError;",
 							"});",
+							"",
+							"console.log(\"response body is: \" + responseBody);",
 							""
 						],
 						"type": "text/javascript"
@@ -121,7 +125,7 @@
 						"order"
 					]
 				},
-				"description": "POST request test with nonexistent header. \nTest data were generated automatically. \nExpected status code 4XX"
+				"description": "POST request test with nonexistent header. \nTest data are generated automatically. \nExpected status code 4XX"
 			},
 			"response": []
 		},
@@ -170,6 +174,9 @@
 							"pm.test(\"Status code is 4XX\", function () {",
 							"   pm.response.to.be.clientError;",
 							"});",
+							"",
+							"console.log(\"header api_key value is: \" + request.headers[\"api_key\"]);",
+							"console.log(\"response body is: \" + responseBody);",
 							""
 						],
 						"type": "text/javascript"
@@ -197,7 +204,7 @@
 						"order"
 					]
 				},
-				"description": "POST request tests with invalid api_key header.\nTest data were generated automatically. \nHeader value was read from pre-request script.\nExpected status code 4XX"
+				"description": "POST request tests with invalid api_key header.\nTest data are generated automatically. \nHeader value is read from pre-request script.\nExpected status code 4XX"
 			},
 			"response": []
 		}

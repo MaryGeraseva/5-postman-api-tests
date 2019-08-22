@@ -16,7 +16,10 @@
 							"//1.Checking response status",
 							"pm.test(\"Status code is 4XX\", function () {",
 							"   pm.response.to.be.clientError;l",
-							"});"
+							"});",
+							"",
+							"console.log(\"header api_key value is: \" + request.headers[\"api_key\"]);",
+							"console.log(\"response body is: \" + responseBody);"
 						],
 						"type": "text/javascript"
 					}
@@ -53,7 +56,7 @@
 						"customer"
 					]
 				},
-				"description": "POST request to nonexistent endpoint test with required headers.\nTest data were generated automatically. \nExpected status code 4XX"
+				"description": "POST request to nonexistent endpoint test with required headers.\nTest data are generated automatically. \nExpected status code 4XX"
 			},
 			"response": []
 		}
