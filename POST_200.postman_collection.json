@@ -34,12 +34,12 @@
 							"});",
 							"",
 							"//2.Checking response message",
-							"pm.test(\"Response message is OK\", function () {",
+							"pm.test(\"Status message is \\\"OK\\\"\", function () {",
 							"    pm.response.to.have.status(\"OK\");",
 							"});",
 							"",
 							"//3.Cheking shipDate value",
-							"pm.test(\"Checking shipDate value\", function () {",
+							"pm.test(\"ShipDate value is valid\", function () {",
 							"    const jsonData = pm.response.json();",
 							"    pm.expect(jsonData.shipDate).to.include(pm.environment.get(\"date\"));",
 							"});"
@@ -80,7 +80,7 @@
 						"order"
 					]
 				},
-				"description": "POST request tests with valid data and required headers.\r\nTest data were generated automatically.\r\nExpected status code 200, message \"OK\" and response body"
+				"description": "POST request tests with valid data and required headers.\r\nTest data are generated automatically.\r\nExpected status code 200, message \"OK\" and response body"
 			},
 			"response": []
 		},
@@ -132,7 +132,7 @@
 							"});",
 							"",
 							"//3.Checking response message",
-							"pm.test(\"Response message is OK\", function () {",
+							"pm.test(\"Status message is \\\"OK\\\"\", function () {",
 							"    pm.response.to.have.status(\"OK\");",
 							"});",
 							"",
@@ -182,7 +182,7 @@
 						"order"
 					]
 				},
-				"description": "POST request tests with valid data and required headers.\r\nTest ckecks status field case sensitive.\r\nTest data were generated automatically.\r\nExpected status code 200, message \"OK\" and response body"
+				"description": "POST request tests with valid data and required headers.\r\nTest ckecks status field case sensitive.\r\nTest data are generated automatically.\r\nExpected status code 200, message \"OK\" and response body"
 			},
 			"response": []
 		}

@@ -32,11 +32,11 @@
 							"pm.test(\"Status code is 4XX\", function () {",
 							"   pm.response.to.be.clientError;",
 							"});",
-							"pm.test(\"Checking response message\", function () {",
+							"pm.test(\"Status message is \\\"Method Not Allowed\\\"\", function () {",
 							"    pm.response.to.have.status(\"Method Not Allowed\");",
 							"});",
 							"//2.Checking response body",
-							"pm.test(\"Body matches response message\", function () {",
+							"pm.test(\"Body matches response message \\\"Method Not Allowed\\\"\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"Method Not Allowed\");",
 							"});",
 							"",
@@ -78,7 +78,7 @@
 						"order"
 					]
 				},
-				"description": "Test send not allowed request method PUT to store endpoint with required headers.\nTest data were generated automatically. \nExpected status code 4XX, message \"Method Not Allowed\""
+				"description": "Test send not allowed request method PUT to store endpoint with required headers.\nTest data are generated automatically. \nExpected status code 4XX, message \"Method Not Allowed\""
 			},
 			"response": []
 		}

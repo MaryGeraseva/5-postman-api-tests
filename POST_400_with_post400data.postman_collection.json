@@ -29,18 +29,18 @@
 							"pm.test(\"Status code is 400\", function () {",
 							"    pm.response.to.have.status(400);",
 							"});",
-							"pm.test(\"Status code name has string\", function () {",
+							"pm.test(\"Status message is \\\"Bad Request\\\"\", function () {",
 							"    pm.response.to.have.status(\"Bad Request\");",
 							"});",
 							"",
 							"//2.Checking response body",
-							"pm.test(\"Body matches response message\", function () {",
+							"pm.test(\"Body matches response message \\\"Invalid Order\\\"\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"Invalid Order\");",
 							"});",
-							"pm.test(\"Body matches status code\", function () {",
+							"pm.test(\"Body matches status code 400\", function () {",
 							"    pm.expect(pm.response.text()).to.include(400);",
 							"});",
-							"pm.test(\"Body matches status type\", function () {",
+							"pm.test(\"Body matches status type error\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"error\");",
 							"});",
 							"",
@@ -89,7 +89,7 @@
 						}
 					]
 				},
-				"description": "POST request tests with invalid data and required headers.\nTest data were read from csv file.\nExpected status 400 \"Bad Request\", message \"Invalid Order\""
+				"description": "POST request tests with invalid data and required headers.\nTest data are read from csv file.\nExpected status 400 \"Bad Request\", message \"Invalid Order\""
 			},
 			"response": []
 		}

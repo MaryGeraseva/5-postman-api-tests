@@ -32,7 +32,7 @@
 							"});",
 							"",
 							"//2.Checking response message",
-							"pm.test(\"Response message is OK\", function () {",
+							"pm.test(\"Status message is \\\"OK\\\"\", function () {",
 							"    pm.response.to.have.status(\"OK\");",
 							"});",
 							"",
@@ -77,7 +77,7 @@
 						"order"
 					]
 				},
-				"description": "POST request test with valid data and required headers.\nTest data were generated automatically. \nExpected status code 200, message \"OK\" and response body"
+				"description": "POST request test with valid data and required headers.\nTest data are generated automatically. \nExpected status code 200, message \"OK\" and response body"
 			},
 			"response": []
 		},
@@ -105,7 +105,7 @@
 							"});",
 							"",
 							"//2.Checking response message",
-							"pm.test(\"Response message is OK\", function () {",
+							"pm.test(\"Status message is \\\"OK\\\"\", function () {",
 							"    pm.response.to.have.status(\"OK\");",
 							"});",
 							""
@@ -171,7 +171,7 @@
 							"});",
 							"",
 							"//2.Checking response message",
-							"pm.test(\"Response message is OK\", function () {",
+							"pm.test(\"Status message is \\\"OK\\\"\", function () {",
 							"    pm.response.to.have.status(\"OK\");",
 							"});"
 						],
@@ -234,18 +234,18 @@
 							"pm.test(\"Status code is 404\", function () {",
 							"    pm.response.to.have.status(404);",
 							"});",
-							"pm.test(\"Status code name has string\", function () {",
+							"pm.test(\"Status message is \\\"Not Found\\\"\", function () {",
 							"    pm.response.to.have.status(\"Not Found\");",
 							"});",
 							"",
 							"//2.Checking response body",
-							"pm.test(\"Body matches response message\", function () {",
+							"pm.test(\"Body matches response message \\\"Order not found\\\"\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"Order not found\");",
 							"});",
-							"pm.test(\"Body matches status code\", function () {",
+							"pm.test(\"Body matches status code 404\", function () {",
 							"    pm.expect(pm.response.text()).to.include(404);",
 							"});",
-							"pm.test(\"Body matches status type\", function () {",
+							"pm.test(\"Body matches status type error\", function () {",
 							"    pm.expect(pm.response.text()).to.include(\"error\");",
 							"});",
 							"",

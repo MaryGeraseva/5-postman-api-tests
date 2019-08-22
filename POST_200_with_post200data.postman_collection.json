@@ -25,7 +25,7 @@
 							"});",
 							"",
 							"//4.Checking response message",
-							"pm.test(\"Response message is OK\", function () {",
+							"pm.test(\"Status message is \\\"OK\\\"\", function () {",
 							"    pm.response.to.have.status(\"OK\");",
 							"});",
 							"",
