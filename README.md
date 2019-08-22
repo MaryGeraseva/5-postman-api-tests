@@ -1,10 +1,10 @@
 # Postman API tests project
 
-This project contains postman collections which test store endpoint in open API https://petstore.swagger.io/.   
-There are used Postman Sandbox API: JavaScript pre-request and tests scripts.
-A couple of tests realize DDT techniques: test data are read from CSV or generated in pre-request script. Other test data are generated automatically and have random values.   
-Postman collection can run with Newman from console or Jenkins. Newman creates informative reports.   
-Postman tests collection be able to integrate into CI/CD.  
+This project contains postman collections which test endpoint in open API https://petstore.swagger.io/.   
+There are used Postman Sandbox API: JavaScript pre-request and tests scripts.  
+A couple of tests realize DDT techniques: test data are read from CSV or generated in pre-request script. Other test data are generated automatically and have random values.     
+Postman collection can run with Newman from console or Jenkins. Newman creates informative reports.     
+Postman tests collection be able to integrate into CI/CD.    
 The project also contains test documentation like check-list, test cases, and bud reports.
 
 ## Tools
@@ -25,6 +25,7 @@ Postman, Postman Sandbox API, JavaScript, Newman
   POST_400_with_post400data.postman_collection.json (post400data.csv)
 
 
+### How to run the project with Jenkins
 
 
 

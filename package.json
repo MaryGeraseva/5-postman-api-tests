@@ -1,0 +1,30 @@
+{
+  "name": "postman-test-pipelone",
+  "version": "1.0.0",
+  "description": "storing postman tests",
+  "scripts": {
+    "delete-tests": "newman run DELETE.postman_collection.json",
+    "get-tests": "newman run GET.postman_collection.json",
+    "get-all-tests": "newman run GET_All.postman_collection.json",
+    "headers-tests": "newman run Headers.postman_collection.json",
+    "nonexistent-endpoint-tests": "newman run Nonexistent_endpoint.postman_collection.json",
+    "not-allowed-method-tests": "newman run Not_allowed_method.postman_collection.json",
+    "post-200-tests": "newman run POST_200.postman_collection.json",
+    "post-400-tests": "newman run POST_400.postman_collection.json",
+    "post-get-delete-get-tests": "newman run POST_GET_DELETE_GET.postman_collection.json",
+    "post-400-with-post400data-tests": "newman run POST_400_with_post400data.postman_collection.json --iteration-data post400data.csv",
+    "post-200-with-post200data-tests": "newman run POST_200_with_post200data.postman_collection.json --iteration-data post200data.csv"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaryGeraseva/5-postman-api-tests.git"
+  },
+  "author": "MaryG",
+  "bugs": {
+    "url": "https://github.com/MaryGeraseva/5-postman-api-tests.git/issues"
+  },
+  "homepage": "https://github.com/MaryGeraseva/5-postman-api-tests.git#readme",
+  "dependencies": {
+    "newman": "^4.5.4"
+  }
+}
