@@ -5,15 +5,14 @@ There are used Postman Sandbox API: JavaScript pre-request and tests scripts.
 A couple of tests realize DDT techniques: test data are read from CSV or generated in pre-request script. Other test data are generated automatically and have random values.     
 Postman collection can run with Newman from console or Jenkins. Newman creates informative reports.     
 Postman tests collection be able to integrate into CI/CD.    
-The project also has test documentation like check-list, test cases, and bud reports: https://github.com/MaryGeraseva/petstore-test-docs.git)
-
+The project also has test documentation like check-list, test cases, and bug reports: https://github.com/MaryGeraseva/petstore-test-docs.git)
 
 ## Tools
 Postman, Postman Sandbox API, JavaScript, Newman
 
 ## Usage
 
-### How to run the project on Windows OS from command line
+### How to run the project on Windows OS from the command line
 * open command line
 * check node.js `node -v`
   * if node.js doesn't find install version 8.X or 10.X from [Node.js](https://nodejs.org/en/)
@@ -30,7 +29,7 @@ Postman, Postman Sandbox API, JavaScript, Newman
 * open Jenkins and create pipeline job
 * add in the section "Pipeline" script
 ![alt text](https://github.com/MaryGeraseva/screenshots/blob/master/pipeline.png)
-  * on linux:
+  * on Linux:
 ```
 pipeline {
     agent any
@@ -81,7 +80,7 @@ pipeline {
     }
 }
 ```
-  * on windows:
+  * on Windows:
 ```
 pipeline {
     agent any
@@ -135,8 +134,8 @@ pipeline {
 * safe and run job
 
 ### How to run the project with Jenkins and Jenkins-job-builder
-Jenkins-job-builder is additional application which takes simple descriptions of Jenkins jobs in YAML or JSON format and uses them to configure Jenkins.   
-Jenkins-job-builder files for this project and usage information in my next project:
+Jenkins-job-builder is an additional application which takes simple descriptions of Jenkins jobs in YAML or JSON format and uses them to configure Jenkins.   
+Jenkins-job-builder files for this project and usage information in my next project:   
 https://github.com/MaryGeraseva/4-jenkins-job-builder.git
 
 
