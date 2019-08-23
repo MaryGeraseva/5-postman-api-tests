@@ -26,7 +26,111 @@ Postman, Postman Sandbox API, JavaScript, Newman
 
 
 ### How to run the project with Jenkins
-
+* open Jenkins and create pipeline job
+* add in the section "Pipeline" script
+![alt text](https://yadi.sk/d/B6sDGnklx8zkRA)
+  * on linux:
+```
+pipeline {
+    agent any
+    stages {
+        stage('download') {
+            steps {
+                 git 'https://github.com/MaryGeraseva/5-postman-api-tests.git'
+                 sh 'npm install'
+            }
+        }
+        stage('tests') {
+            steps {
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                sh 'npm run delete-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                sh 'npm run get-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                sh 'npm run get-all-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                sh 'npm run post-get-delete-get-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                sh 'npm run headers-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                sh 'npm run nonexistent-endpoint-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                sh 'npm run not-allowed-method-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                sh 'npm run post-200-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                sh 'npm run post-400-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                sh 'npm run post-400-with-post400data-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                sh 'npm run post-200-with-post200data-tests'    
+                }
+            }
+        }
+    }
+}
+```
+  * on windows:
+```
+pipeline {
+    agent any
+    stages {
+        stage('download') {
+            steps {
+                 git 'https://github.com/MaryGeraseva/5-postman-api-tests.git'
+                 bat 'npm install'
+            }
+        }
+        stage('tests') {
+            steps {
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                bat 'npm run delete-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                bat 'npm run get-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                bat 'npm run get-all-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                bat 'npm run post-get-delete-get-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                bat 'npm run headers-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                bat 'npm run nonexistent-endpoint-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                bat 'npm run not-allowed-method-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                bat 'npm run post-200-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                bat 'npm run post-400-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                bat 'npm run post-400-with-post400data-tests'    
+                }
+                catchError(buildResult:'FAILURE', stageResult:'SUCCESS') {
+                bat 'npm run post-200-with-post200data-tests'    
+                }
+            }
+        }
+    }
+}
+```
 
 
 
