@@ -29,7 +29,7 @@ Postman, Postman Sandbox API, JavaScript, Newman
 ### How to run the project with Jenkins
 * open Jenkins and create pipeline job
 * add in the section "Pipeline" script
-![alt text](https://github.com/MaryGeraseva/screenshots.git/pipeline.png)
+![alt text](https://github.com/MaryGeraseva/screenshots/blob/master/pipeline.png)
   * on linux:
 ```
 pipeline {
