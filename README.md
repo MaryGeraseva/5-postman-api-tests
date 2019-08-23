@@ -5,7 +5,8 @@ There are used Postman Sandbox API: JavaScript pre-request and tests scripts.
 A couple of tests realize DDT techniques: test data are read from CSV or generated in pre-request script. Other test data are generated automatically and have random values.     
 Postman collection can run with Newman from console or Jenkins. Newman creates informative reports.     
 Postman tests collection be able to integrate into CI/CD.    
-The project also contains test documentation like check-list, test cases, and bud reports.
+The project also has test documentation like check-list, test cases, and bud reports: https://github.com/MaryGeraseva/petstore-test-docs.git)
+
 
 ## Tools
 Postman, Postman Sandbox API, JavaScript, Newman
@@ -28,7 +29,7 @@ Postman, Postman Sandbox API, JavaScript, Newman
 ### How to run the project with Jenkins
 * open Jenkins and create pipeline job
 * add in the section "Pipeline" script
-![alt text](https://yadi.sk/d/B6sDGnklx8zkRA)
+![alt text](https://github.com/MaryGeraseva/screenshots.git/pipeline.png)
   * on linux:
 ```
 pipeline {
@@ -131,12 +132,24 @@ pipeline {
     }
 }
 ```
+* safe and run job
+
+### How to run the project with Jenkins and Jenkins-job-builder
+Jenkins-job-builder is additional application which takes simple descriptions of Jenkins jobs in YAML or JSON format and uses them to configure Jenkins.   
+Jenkins-job-builder files for this project and usage information in my next project:
+https://github.com/MaryGeraseva/4-jenkins-job-builder.git
 
 
-
-
-
-
+### How to run the project with Postman desktop application
+* open command line
+* clone git repository `https://github.com/MaryGeraseva/5-postman-api-tests.git`
+* import collections:  
+open Postman --> on the toolbar push "Import" button --> "Import File" --> "Choose Files" --> import files from downloaded repository
+* run tests with Postman Runner:   
+on the toolbar push "Runner" button --> choose collection --> [optional] on the toolbar in section "Data" push "Select file" button--> run tests   
+a couple of collections have to run only with external data files:
+POST_200_with_post200data.postman_collection.json with post200data.csv and
+POST_400_with_post400data.postman_collection.json with post400data.csv
 
 
 ## For feedback
