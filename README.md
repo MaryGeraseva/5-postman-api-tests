@@ -144,9 +144,19 @@ https://github.com/MaryGeraseva/4-jenkins-job-builder.git
 * open command line
 * clone git repository `https://github.com/MaryGeraseva/5-postman-api-tests.git`
 * import collections:  
-open Postman --> on the toolbar push "Import" button --> "Import File" --> "Choose Files" --> import files from downloaded repository
+open Postman --> on the toolbar push "Import" button --> "Import File" --> "Choose Files" --> import files from downloaded repository  
+
+![alt text](https://github.com/MaryGeraseva/screenshots/blob/master/toolbar%20%201.png)
+
+![alt text](https://github.com/MaryGeraseva/screenshots/blob/master/import.png)
+
 * run tests with Postman Runner:   
-on the toolbar push "Runner" button --> choose collection --> [optional] on the toolbar in section "Data" push "Select file" button--> run tests   
+on the toolbar push "Runner" button --> choose collection --> [optional] on the toolbar in section "Data" push "Select file" button--> run tests  
+
+![alt text](https://github.com/MaryGeraseva/screenshots/blob/master/toolbar%20%202.png)
+
+![alt text](https://github.com/MaryGeraseva/screenshots/blob/master/runner.png)   
+  
 a couple of collections have to run only with external data files:
 POST_200_with_post200data.postman_collection.json with post200data.csv and
 POST_400_with_post400data.postman_collection.json with post400data.csv
