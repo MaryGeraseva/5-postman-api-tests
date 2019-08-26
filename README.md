@@ -1,6 +1,6 @@
 # Postman API tests project
 
-This project contains postman collections which test endpoint in open API https://petstore.swagger.io/.   
+This project contains Postman collections which test endpoint in open API https://petstore.swagger.io/.   
 There are used Postman Sandbox API: JavaScript pre-request and tests scripts.  
 A couple of tests realize DDT techniques: test data are read from CSV or generated in pre-request script. Other test data are generated automatically and have random values.     
 Postman collection can run with Newman from console or Jenkins. Newman creates informative reports.     
@@ -14,8 +14,8 @@ Postman, Postman Sandbox API, JavaScript, Newman
 
 ### How to run the project on Windows OS from the command line
 * open command line
-* check node.js `node -v`
-  * if node.js doesn't find install version 8.X or 10.X from [Node.js](https://nodejs.org/en/)
+* check Node.js `node -v`
+  * if Node.js doesn't find install version 8.X or 10.X from [Node.js](https://nodejs.org/en/)
 * install Newman `npm install -g newman`
 * clone git repository `https://github.com/MaryGeraseva/5-postman-api-tests.git`
 * open project folder `cd 5-postman-api-tests`
@@ -134,8 +134,8 @@ pipeline {
 * safe and run job
 
 ### How to run the project with Jenkins and Jenkins-job-builder
-Jenkins-job-builder is an additional application which takes simple descriptions of Jenkins jobs in YAML or JSON format and uses them to configure Jenkins.   
-Jenkins-job-builder files for this project and usage information in my next project:   
+Jenkins job builder is an additional application which takes simple descriptions of Jenkins jobs in YAML or JSON format and uses them to configure Jenkins.   
+Jenkins job builder files for this project and usage information in my next project:   
 https://github.com/MaryGeraseva/4-jenkins-job-builder.git
 
 
