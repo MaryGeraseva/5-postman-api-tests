@@ -13,7 +13,8 @@
     "post-400-tests": "newman run POST_400.postman_collection.json",
     "post-get-delete-get-tests": "newman run POST_GET_DELETE_GET.postman_collection.json",
     "post-400-with-post400data-tests": "newman run POST_400_with_post400data.postman_collection.json --iteration-data post400data.csv",
-    "post-200-with-post200data-tests": "newman run POST_200_with_post200data.postman_collection.json --iteration-data post200data.csv"
+    "post-200-with-post200data-tests": "newman run POST_200_with_post200data.postman_collection.json --iteration-data post200data.csv",
+    "all": "newman run DELETE.postman_collection.json / newman run GET.postman_collection.json"
   },
   "repository": {
     "type": "git",
