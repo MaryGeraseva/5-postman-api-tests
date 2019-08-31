@@ -186,7 +186,7 @@
 						"order"
 					]
 				},
-				"description": "POST request tests with valid data and required headers.\r\nTest ckecks status field case sensitive.\r\nTest data are generated automatically.\r\nExpected status code 200, message \"OK\" and response body"
+				"description": "POST request tests with valid data and required headers.\r\nTest checks status field case sensitive.\r\nTest data are generated automatically.\r\nExpected status code 200, message \"OK\" and response body"
 			},
 			"response": []
 		}

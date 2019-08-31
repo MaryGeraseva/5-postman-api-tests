@@ -15,7 +15,7 @@
 						"exec": [
 							"//1.Checking response status",
 							"pm.test(\"Status code is 4XX\", function () {",
-							"   pm.response.to.be.clientError;l",
+							"   pm.response.to.be.clientError;",
 							"});",
 							"",
 							"console.log(\"response body is: \" + responseBody);"

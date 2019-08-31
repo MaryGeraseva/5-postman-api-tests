@@ -85,7 +85,7 @@
 			"response": []
 		},
 		{
-			"name": "4.Send GET request to store endpoint",
+			"name": "2.Send GET request to store endpoint",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -147,7 +147,7 @@
 						"{{orderId}}"
 					]
 				},
-				"description": "GET request test with valid id and required headers.\nOrder id have got from the previous test step.\nExpected status code 200, message \"OK\" and response body"
+				"description": "GET request test with valid id and required headers.\nOrder id was got from the previous test step.\nExpected status code 200, message \"OK\" and response body"
 			},
 			"response": []
 		},
@@ -214,7 +214,7 @@
 						"{{orderId}}"
 					]
 				},
-				"description": "DELETE request test with valid data and required headers. \nOrder id have got from the previous test step.\nExpected status code 200, message \"OK\""
+				"description": "DELETE request test with valid data and required headers. \nOrder id was got from the previous test step.\nExpected status code 200, message \"OK\""
 			},
 			"response": []
 		},
@@ -292,7 +292,7 @@
 						"{{orderId}}"
 					]
 				},
-				"description": "GET request test with nonexistent id and required headers.\nTest checks DELETE request.\nOrder id have got from the previous test step.\nExpected status 404 \"Not Found\", message \"Order not found\""
+				"description": "GET request test with nonexistent id and required headers.\nTest checks DELETE request.\nOrder id was got from the previous test step.\nExpected status 404 \"Not Found\", message \"Order not found\""
 			},
 			"response": []
 		}
