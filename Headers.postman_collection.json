@@ -79,7 +79,9 @@
 							"var moment = require('moment');",
 							"pm.environment.set(\"currentDate\", moment().format(\"YYYY-MM-DD\"));",
 							"",
-							"//3.Set request header",
+							"//3.Set request headers",
+							"pm.request.headers.add({key: 'api_key', value: 'maryTest062019' });",
+							"pm.request.headers.add({key: 'Content-Type', value: 'application/json' });",
 							"pm.request.headers.add({key: 'X-Pingback', value: 'test' });",
 							"",
 							""
@@ -93,8 +95,13 @@
 						"id": "abbba98b-dbff-4a4d-b35e-3fd5dac8cf0f",
 						"exec": [
 							"//1.Checking status code",
-							"pm.test(\"Status code is 4XX\", function () {",
-							"   pm.response.to.be.clientError;",
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"//2.Checking response message",
+							"pm.test(\"Status message is \\\"OK\\\"\", function () {",
+							"    pm.response.to.have.status(\"OK\");",
 							"});",
 							"",
 							"console.log(\"response body is: \" + responseBody);",
@@ -205,6 +212,66 @@
 					]
 				},
 				"description": "POST request tests with invalid api_key header.\nTest data are generated automatically. \nHeader value is read from pre-request script.\nExpected status code 4XX"
+			},
+			"response": []
+		},
+		{
+			"name": "Store endpoint without api_key header POST",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "ecc9fe18-57f6-4eea-a62a-a0a5644b665b",
+						"exec": [
+							"//1.Create current date ",
+							"var moment = require('moment');",
+							"pm.environment.set(\"currentDate\", moment().format(\"YYYY-MM-DD\"));",
+							"",
+							"//3.Set request header",
+							"pm.request.headers.add({key: 'Content-Type', value: 'application/json' });",
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "6e731396-05a7-4b10-b45a-05ab299434b3",
+						"exec": [
+							"//1.Checking status code",
+							"pm.test(\"Status code is 4XX\", function () {",
+							"   pm.response.to.be.clientError;",
+							"});",
+							"",
+							"console.log(\"response body is: \" + responseBody);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"id\": {{orderId}},\r\n  \"petId\": {{$randomInt}},\r\n  \"quantity\": {{$randomInt}},\r\n  \"shipDate\": \"{{currentDate}}\",\r\n  \"status\": \"plased\",\r\n  \"complete\": {{$randomBoolean}}\r\n}"
+				},
+				"url": {
+					"raw": "https://petstore.swagger.io/v2/store/order",
+					"protocol": "https",
+					"host": [
+						"petstore",
+						"swagger",
+						"io"
+					],
+					"path": [
+						"v2",
+						"store",
+						"order"
+					]
+				},
+				"description": "POST request test without api_key header. \nTest data are generated automatically.\nExpected status code 4XX"
 			},
 			"response": []
 		}
